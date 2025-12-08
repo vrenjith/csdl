@@ -1,0 +1,36 @@
+{
+  "name": "@vrenjith/csdl",
+  "version": "0.1.0",
+  "description": "CSDL — Cross Service Deployment Language: generate Kubernetes/Nomad/CI artifacts from a higher-level YAML",
+  "main": "lib/cli.js",
+  "bin": {
+    "csdl": "./bin/csdl.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "start": "node ./bin/csdl.js",
+    "test": "node ./test/test-gen.js && node ./test/test-status.js",
+    "smoke:init": "node ./bin/csdl.js init ./smoketest && node ./bin/csdl.js generate ./smoketest -o ./smoketest/.csdl/generated"
+  },
+  "keywords": [
+    "csdl",
+    "kubernetes",
+    "nomad",
+    "ci",
+    "deploy",
+    "generator"
+  ],
+  "author": "vrenjith",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "execa": "^7.1.1",
+    "fs-extra": "^11.1.1",
+    "js-yaml": "^4.1.0",
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}

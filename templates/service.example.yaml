@@ -1,0 +1,21 @@
+name: example-service
+image: example/image:latest
+replicas: 2
+ports:
+  - 8080
+env:
+  - name: LOG_LEVEL
+    value: debug
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "256Mi"
+
+# target hints (optional) - abstracted fields
+runtime:
+  type: http
+  port: 8080
+  health: /health

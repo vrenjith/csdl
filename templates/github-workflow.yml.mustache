@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: echo "build steps here"
+      - name: Run tests
+        run: npm test
+      - name: Generate artifacts
+        run: |
+          npx csdl generate -o .csdl/generated
+      - name: Deploy (manual step)
+        run: echo "deployment step is environment-specific"

@@ -1,0 +1,12 @@
+service: {{name}}-lambda
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+functions:
+  {{name}}:
+    handler: handler.main
+    events:
+      - http:
+          path: /
+          method: any

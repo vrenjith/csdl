@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') { steps { checkout scm } }
+    stage('Install') { steps { sh 'npm ci' } }
+    stage('Build') { steps { sh 'echo build steps here' } }
+    stage('Generate') { steps { sh 'npx csdl generate -o .csdl/generated' } }
+    stage('Deploy') { steps { echo 'Deployment step: fill environment-specific steps here' } }
+  }
+}

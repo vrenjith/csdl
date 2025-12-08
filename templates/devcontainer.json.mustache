@@ -1,0 +1,6 @@
+{
+  "name": "{{name}} devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "forwardPorts": [{{#ports}}{{.}},{{/ports}}],
+  "postCreateCommand": "echo 'Setup steps here'"
+}
